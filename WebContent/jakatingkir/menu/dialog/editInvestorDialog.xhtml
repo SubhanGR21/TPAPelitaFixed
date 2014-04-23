@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:body>
+	<!-- Edit Dialog -->
+	<h:form id="form3">
+		<p:dialog header="Edit Investor" widgetVar="editInvestor" modal="true"
+			resizable="false" id="dlg2">
+			<p:growl id="msg2" />
+			<p:panel>
+				<p:panelGrid id="displayEdit" columns="2">
+					<p:outputLabel value="Id Investor :" />
+					<p:outputLabel id="investorId" value="#{investorC.investorIdModif}" />
+
+					<p:outputLabel value="Name :" />
+					<p:outputLabel id="investorRegistration"
+						value="#{investorC.investorRegistrationModif}" />
+
+					<p:outputLabel value="Name :" />
+					<p:inputText id="investorName"
+						value="#{investorC.investor.investorName}" />
+
+					<p:outputLabel value="Email :" />
+					<p:inputText id="investorEmail"
+						value="#{investorC.investor.investorEmail}" />
+
+					<p:outputLabel value="Phone :" />
+					<p:inputText id="investorPhone"
+						value="#{investorC.investor.investorPhone}" />
+
+					<p:outputLabel value="Status :" />
+					<p:selectOneMenu id="statu"
+						value="#{investorC.investorStatusModif}">
+						<f:selectItems value="#{investorC.investorStatusOption}" />
+					</p:selectOneMenu>
+
+					<f:facet name="footer">
+						<p:commandButton id="btn1" value="Save"
+							update="displayEdit msg2 :form5:tableInvestor"
+							action="#{investorC.delete}" oncomplete="addInvestor.hide();" />
+					</f:facet>
+				</p:panelGrid>
+			</p:panel>
+		</p:dialog>
+	</h:form>
+	<!-- End of Edit Dialog -->
+</h:body>
+</html>

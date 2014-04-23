@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:body>
+	<!-- Edit Dialog -->
+	<h:form id="form6">
+		<p:dialog header="Edit Investment" widgetVar="editInvestment"
+			modal="true" resizable="false">
+			<p:growl id="msgs2" />
+			<p:panel>
+				<p:panelGrid id="displayEdit" columns="2" style="margin-bottom:10px">
+					<p:outputLabel for="invesId" value="Inves Id :" />
+					<h:outputText id="invesId" value="#{investmentC.invesIdModif}" />
+
+					<p:outputLabel for="invesType" value="Inves Type :" />
+					<p:inputText id="invesType" value="Zakat" />
+
+					<p:outputLabel for="invesSenderName" value="Inves Sender Name :" />
+					<p:inputText id="invesSenderName"
+						value="#{investmentC.inves.invesSenderName}" />
+
+					<p:outputLabel for="invesBankName" value="Inves Bank Name :" />
+					<p:inputText id="invesBankName"
+						value="#{investmentC.inves.invesBankName}" />
+
+					<p:outputLabel for="invesAccountNo" value="Inves Account No :" />
+					<p:inputText id="invesAccountNo"
+						value="#{investmentC.inves.invesAccountNo}" />
+
+					<p:outputLabel for="invesTransfer" value="Inves Transfer :" />
+					<p:inputText id="invesTransfer"
+						value="#{investmentC.inves.invesTransfer}" />
+
+					<f:facet name="footer">
+						<p:commandButton id="btn1" value="Save" update=":form1:tableInvestment displayEdit msgs2"
+							action="#{investmentC.update}"
+							oncomplete="editInvestment.hide();" />
+					</f:facet>
+				</p:panelGrid>
+			</p:panel>
+		</p:dialog>
+	</h:form>
+	<!-- End of Edit Dialog -->
+</h:body>
+</html>
